@@ -1,4 +1,5 @@
+x= ' '
 for color in white red blue;do
-echo color is $color
-sleep 10
+x=$x$color
 done
+echo $x
