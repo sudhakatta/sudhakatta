@@ -1,6 +1,6 @@
 ### Hi there 👋
 This is my first commit
-
+Let me learch shell script from today mar 09 2023
 
 <!--SUDHARANI KATA
 **sudhakatta/sudhakatta** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
