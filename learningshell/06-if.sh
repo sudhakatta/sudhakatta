@@ -1,5 +1,5 @@
 #declare -i,a
-a=11
+a=-1
 if [ $a -gt 10 ] 
 then 
 echo $a gt than 10
