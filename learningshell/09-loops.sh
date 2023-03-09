@@ -1,5 +1,5 @@
 x= ' '
 for color in white red blue;do
-x=$x$color
+x=$color$x
 done
 echo $x
