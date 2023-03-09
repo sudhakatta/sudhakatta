@@ -5,3 +5,4 @@ then
 echo "$a gt than 10"
 else 
 echo "$a ls than 10"
+fi
