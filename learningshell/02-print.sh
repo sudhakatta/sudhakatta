@@ -1,1 +1,1 @@
-echo "Hi Sudha"
+echo "\e[31m Hi Sudha \e[0m]"
