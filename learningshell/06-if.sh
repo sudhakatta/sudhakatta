@@ -11,3 +11,8 @@ else
 
 echo $a eq than 10
 fi
+r="abc"
+if [ $r == "abc" ]
+then
+echo both are same strings
+fi
