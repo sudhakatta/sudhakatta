@@ -11,8 +11,10 @@ else
 
 echo $a eq than 10
 fi
-r="abc"
+r="Rbc"
 if [ $r == "abc" ]
 then
 echo both are same strings
+else
+echo not same
 fi
