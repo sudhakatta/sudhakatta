@@ -6,3 +6,4 @@ DATE=$(date)
 echo "date is $DATE"
 ADD=$((2+7+90))
 echo "final value $ADD"
+echo final value $ADD
