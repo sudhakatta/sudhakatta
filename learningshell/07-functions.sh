@@ -11,10 +11,10 @@ a=7
 b=9
 function swap()
 {
-    var1(($a+$b))
-    a=(($var1-a))
+    var1=(($a+$b))
+    a=(($var1-$a))
     echo $a 
-    b=(($var1-b))
+    b=(($var1-$b))
     echo $b
 }
 
