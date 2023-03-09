@@ -18,3 +18,11 @@ echo both are same strings
 else
 echo not same
 fi
+
+file=/tmp/newfile
+if [ -f $file ]
+then 
+ehco exits
+else
+echo not exists
+fi
