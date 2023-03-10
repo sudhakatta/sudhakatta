@@ -1,1 +1,1 @@
-$sed 's/unix/linux/g' sample.txt
+sed 's/linux/unix/g' sample.txt
