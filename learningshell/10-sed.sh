@@ -1,0 +1,1 @@
+$sed 's/unix/linux/g' sample.txt
