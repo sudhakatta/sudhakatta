@@ -23,7 +23,7 @@ fi
 
 
 echo "Download ${COMPONENT} component"
- curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip"
+ curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip"
  statuscheck $?
  echo "remove old content if it is exists already"
 
