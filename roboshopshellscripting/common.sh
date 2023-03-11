@@ -1,3 +1,11 @@
+ID=$(id -u)
+if [ ID -ne 0 ]
+then
+echo "you are not running as root user.........it will not get executed"
+exit 1
+fi
+
+
 APP_PREREQ()
 {
 
@@ -31,6 +39,31 @@ echo "Download ${COMPONENT} component"
 
 SYSTEMD_SETUP(){
 
+echo "updating the systemd with ip adress of other connections like redis endpoint ,mongodb endpoint"
+
+ 
+
+
+sed -i -e 's/REDIS_ENDPOINT/10.1.0.6/' -e 's/MONGO_ENDPOINT/10.1.0.5/' -e 's/CATALOGUE_ENDPOINT/10.1.0.8' -e '/s/MONGO_DNSNAME/10.1.0.5' -e 's/CARTENDPOINT/10.1.0.7/' -e 's/DBHOST/10.1.0.10/' -e 's/CARTHOST/10.1.0.7/' -e 's/USERHOST/10.1.0.9/' -e  's/AMQPHOST/rabbitmq.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service &>>${LOG_FILE}
+
+
+statuscheck $?
+
+
+
+echo "setting up the service to run"
+mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service  
+statuscheck $?
+echo "Reloading the config from disk"
+systemctl daemon-reload
+statuscheck $?
+echo "Restarting the Service"
+ systemctl start ${COMPONENT}
+ statuscheck $?
+ echo "Enabling the Service"
+ systemctl enable ${COMPONENT}
+ statuscheck $?
+
 }
 
 statuscheck()
@@ -61,6 +94,8 @@ cd /home/roboshop
 cd ${COMPONENT}
 echo "Installing npm"
 npm install &>>${LOG_FILE}
+statuscheck $?
+SYSTEMD_SETUP
 }
 JAVA()
 {
