@@ -1,4 +1,4 @@
 COMPONENT=dispatch
-LOG_FILE=/tmp/dispatcherror/
+LOG_FILE=/tmp/${dispatch}/
 source ./common.sh
 GOLANG
