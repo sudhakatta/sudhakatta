@@ -18,7 +18,7 @@ statuscheck $?
 echo "stopping redis"
 systemctl stop redis &>>${LOG_FILE}
 echo "updating the bind 127.0.0.1 to 0.0.0.0"
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/${COMPONENT}.conf &>>${LOG_FILE}
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf &>>$LOG_FILE
 
 
 statuscheck $?
