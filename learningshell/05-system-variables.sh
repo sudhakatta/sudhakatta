@@ -8,3 +8,4 @@ echo -------
 echo $@
 echo---------
 echo $#
+echo $? #status check if 0 sucess or not sucess
