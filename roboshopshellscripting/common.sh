@@ -41,10 +41,7 @@ SYSTEMD_SETUP(){
 
 echo "updating the systemd with ip adress of other connections like redis endpoint ,mongodb endpoint"
 
- 
-
-
-sed -i -e 's/REDIS_ENDPOINT/10.1.0.6/' -e 's/MONGO_ENDPOINT/10.1.0.5/' -e 's/CATALOGUE_ENDPOINT/10.1.0.8' -e '/s/MONGO_DNSNAME/10.1.0.5' -e 's/CARTENDPOINT/10.1.0.7/' -e 's/DBHOST/10.1.0.10/' -e 's/CARTHOST/10.1.0.7/' -e 's/USERHOST/10.1.0.9/' -e  's/AMQPHOST/10.1.0.12/' /home/roboshop/${COMPONENT}/systemd.service &>>${LOG_FILE}
+ sed -i -e 's/REDIS_ENDPOINT/10.1.0.6/' -e 's/MONGO_ENDPOINT/10.1.0.5/' -e 's/CATALOGUE_ENDPOINT/10.1.0.8' -e '/s/MONGO_DNSNAME/10.1.0.5' -e 's/CARTENDPOINT/10.1.0.7/' -e 's/DBHOST/10.1.0.10/' -e 's/CARTHOST/10.1.0.7/' -e 's/USERHOST/10.1.0.9/' -e 's/AMQPHOST/10.1.0.12/' /home/roboshop/${COMPONENT}/systemd.service &>>${LOG_FILE}
 
 
 statuscheck $?
