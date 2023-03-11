@@ -10,18 +10,20 @@ LOG_FILE=/tmp/${COMPONENT}
 
 source ./common.sh
 echo "installing redis repo"
-dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>${LOG_FILE}
+dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y --skip-broken &>>${LOG_FILE}
 statuscheck $?
 echo "installing redis"
 dnf install redis -y &>>${LOG_FILE}
 statuscheck $?
-
+echo "stopping redis"
+systemctl stop redis &>>${LOG_FILE}
 echo "updating the bind 127.0.0.1 to 0.0.0.0"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/${COMPONENT}.conf &>>${LOG_FILE}
 
+
 statuscheck $?
 echo "enable redis"
-systemctl enable redis
+systemctl enable redis &>>${LOG_FILE}
 echo "starting  redis"
-systemctl start redis
+systemctl start redis &>>${LOG_FILE}
 
