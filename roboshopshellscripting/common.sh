@@ -27,7 +27,8 @@ echo "Download ${COMPONENT} component"
  statuscheck $?
  echo "remove old content if it is exists already"
 
-
+echo "stopping service before removing the content"
+systemctl  stop ${COMPONENT}.service
  cd /home/roboshop && rm -rf ${COMPONENT}
  echo "extracting the application"
  unzip /tmp/${COMPONENT}.zip
