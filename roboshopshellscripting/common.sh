@@ -96,9 +96,19 @@ npm install &>>${LOG_FILE}
 statuscheck $?
 SYSTEMD_SETUP
 }
-JAVA()
+MAVEN()
 {
-
+    echo "install maven"
+yum install maven -y &>>${LOG_FILE}
+statuscheck $?
+APP_PREREQ
+echo "instaling the dependancies"
+cd /home/roboshop
+cd ${COMPONENT}
+ mvn clean package &>>${LOG_FILE}
+ mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar &>>${LOG_FILE}
+statuscheck $?
+SYSTEMD_SETUP
 }
 PHYTON()
 {
