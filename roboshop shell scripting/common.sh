@@ -56,8 +56,11 @@ echo "Install nodejs"
 yum install nodejs -y &>>${LOG_FILE}
 statuscheck $?
 APP_PREREQ
-
-
+echo "Install node dependencies"
+cd /home/roboshop
+cd ${COMPONENT}
+echo "Installing npm"
+npm install &>>${LOG_FILE}
 }
 JAVA()
 {
