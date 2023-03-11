@@ -70,9 +70,9 @@ statuscheck()
 {
 if [ $1 -eq 0 ]
 then
-echo -e status="\e[32sucess\e[0m"
+echo -e status="\e[32 sucess\e[0m"
 else
-echo -e status="\e[31failure\e[0m"
+echo -e status="\e[31 failure\e[0m"
 exit 1
 fi
 
