@@ -29,11 +29,11 @@ rabbitmqctl list_users | grep -i roboshop &>>$LOG_FILE
 if [ $? ne 0 ]; then 
     echo "adding roboshop user to rabbitmq"
     rabbitmqctl add_user roboshop roboshop123 &>>$LOG_FILE
-    Statuscheck $?
+    statuscheck $?
 fi
 
 echo " set roboshop user as admin"
 rabbitmqctl set_user_tags roboshop administrator &>>$LOG_FILE
-Statuscheck $?
+statuscheck $?
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>$LOG_FILE
-Statuscheck $?
+statuscheck $?
