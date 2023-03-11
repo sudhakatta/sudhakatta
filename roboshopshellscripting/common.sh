@@ -112,7 +112,16 @@ SYSTEMD_SETUP
 }
 PHYTON()
 {
-
+    echo "install python"
+    yum install python36 gcc python3-devel -y  &>>${LOG_FILE}
+statuscheck $?
+APP_PREREQ
+echo "Instaling dependencies"
+cd /home/roboshop
+cd ${payment} 
+pip3 install -r requirements.txt &>>${LOG_FILE}
+statuscheck $?
+SYSTEMD_SETUP
 }
 
 GOLANG()
