@@ -126,5 +126,16 @@ SYSTEMD_SETUP
 
 GOLANG()
 {
+    echo "installing golang"
+    yum install golang -y &>>${LOG_FILE}
+    statuscheck $?
+APP_PREREQ
 
+echo "Installing dependencies"
+    cd /home/roboshop
+    cd ${COMPONENT} 
+ go mod init dispatch &>>${LOG_FILE}
+ go get &>>${LOG_FILE}
+ go build &>>${LOG_FILE}
+SYSTEMD_SETUP
 }
