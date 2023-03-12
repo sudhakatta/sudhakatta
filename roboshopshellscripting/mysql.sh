@@ -25,6 +25,27 @@ statuscheck $?
 statuscheck $?
 
 DEFAULT_PASSWORD=$( grep ' A temporary password' temp /var/log/mysqld.log | cut -d " " -f 11)
+
 echo " ALTER USER 'root'@'localhost' IDENTIFIED BY '$1';
 FLUSH PRIVILEGES; " > /tmp/set-root-passwd.sql
 
+echo "show databases;" | mysql  -uroot -p${DEFAULT_PASSWORD}
+if [ $? -ne 0 ]; then 
+echo " change the default password"
+mysql  -uroot -p${DEFAULT_PASSWORD} < /tmp/set-root-passwd.sql &>>$LOG_FILE
+Statuscheck $?
+echo " uninstall plugin validate_password; " | mysql -uroot -p$1 &>>$LOG_FILE
+Statuscheck $?
+fi 
+
+echo "cleaning up before install"
+rm -rf /tmp/mysql.zip
+
+curl -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip" &>>$LOG_FILE
+Statuscheck $?
+
+echo "load the schema"
+ cd /tmp
+ unzip mysql.zip
+ cd mysql-main
+ mysql -u root -pRoboShop@1 <shipping.sql
