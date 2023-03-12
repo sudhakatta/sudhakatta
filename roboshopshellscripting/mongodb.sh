@@ -47,7 +47,7 @@ statuscheck $?
 
 
 cd /tmp
- unzip mongodb.zip statuscheck  &>>$LOG_FILE
+ unzip mongodb.zip   &>>$LOG_FILE
 statuscheck $?
 
 
