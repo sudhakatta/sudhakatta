@@ -41,5 +41,5 @@ echo "Finally restart the service once to effect the changes"
 systemctl restart nginx &>>${LOG_FILE}
 statuscheck $?
 
-Finally restart the service once to effect the changes.
+
 
