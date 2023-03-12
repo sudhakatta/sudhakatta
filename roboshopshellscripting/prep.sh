@@ -9,7 +9,7 @@ echo "install git on it"
 yum install -y git  &>>${LOG_FILE}
 Statuscheck $?
 
-git clone https://github.com/r-devops/venkatdevopsa02.git
+git clone https://github.com/sudhakatta/sudhakatta.git
 
 sleep 10
 
