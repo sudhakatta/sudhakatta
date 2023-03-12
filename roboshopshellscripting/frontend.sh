@@ -26,20 +26,20 @@ statuscheck $?
 
 echo " Updating the systemD service file with DNS name"
 sed -i -e '/catalogue/ s/localhost/10.1.0.8/'  /etc/nginx/default.d/roboshop.conf &>>${LOG_FILE}
-Statuscheck $?
+statuscheck $?
 sed -i -e '/user/ s/localhost/10.1.0.9/'  /etc/nginx/default.d/roboshop.conf &>>${LOG_FILE}
-Statuscheck $?
+statuscheck $?
 sed -i -e '/cart/ s/localhost/10.1.0.7/'  /etc/nginx/default.d/roboshop.conf &>>${LOG_FILE}
-Statuscheck $?
+statuscheck $?
 sed -i -e '/shipping/ s/localhost/10.1.0.11/'  /etc/nginx/default.d/roboshop.conf &>>${LOG_FILE}
-Statuscheck $?
+statuscheck $?
 sed -i -e '/payment/ s/localhost/10.1.0.13/'  /etc/nginx/default.d/roboshop.conf &>>${LOG_FILE}
-Statuscheck $?
+statuscheck $?
 
 echo "Finally restart the service once to effect the changes"
 
 systemctl restart nginx &>>${LOG_FILE}
-Statuscheck $?
+statuscheck $?
 
 Finally restart the service once to effect the changes.
 
