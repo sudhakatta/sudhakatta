@@ -11,6 +11,6 @@ Statuscheck $?
 
 git clone https://github.com/sudhakatta/sudhakatta.git
 
-sleep 10
 
-reboot 
+
+#reboot 
